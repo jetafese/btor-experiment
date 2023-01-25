@@ -1,32 +1,31 @@
 ; ModuleID = 'LLVMDialectModule'
 source_filename = "LLVMDialectModule"
-target triple = "x86_64-pc-linux-gnu"
 
 declare i8* @malloc(i64)
 
 declare void @free(i8*)
 
-declare void @verifier_error()
+declare void @verifier.error()
 
-declare i8 @nd_bv8()
+declare i4 @nd_bv4()
 
 define void @main() !dbg !3 {
-  %1 = call i8 @nd_bv8(), !dbg !7
+  %1 = call i4 @nd_bv4(), !dbg !7
   br label %2, !dbg !9
 
 2:                                                ; preds = %15, %0
-  %3 = phi i8 [ %6, %15 ], [ %1, %0 ]
-  %4 = phi i8 [ %5, %15 ], [ 1, %0 ]
-  %5 = add i8 %4, 1, !dbg !10
-  %6 = mul i8 %3, %4, !dbg !11
-  %7 = icmp eq i8 %4, -1, !dbg !12
+  %3 = phi i4 [ %6, %15 ], [ %1, %0 ]
+  %4 = phi i4 [ %5, %15 ], [ 1, %0 ]
+  %5 = add i4 %4, 1, !dbg !10
+  %6 = mul i4 %3, %4, !dbg !11
+  %7 = icmp eq i4 %4, -1, !dbg !12
   %8 = xor i1 %7, true, !dbg !13
   br i1 %8, label %9, label %16, !dbg !14
 
 9:                                                ; preds = %2
-  %10 = lshr i8 %3, 0, !dbg !15
-  %11 = trunc i8 %10 to i1, !dbg !16
-  %12 = icmp ugt i8 %4, 3, !dbg !17
+  %10 = lshr i4 %3, 0, !dbg !15
+  %11 = trunc i4 %10 to i1, !dbg !16
+  %12 = icmp ugt i4 %4, 3, !dbg !17
   %13 = and i1 %12, %11, !dbg !18
   %14 = xor i1 %13, true, !dbg !19
   br i1 %14, label %15, label %17, !dbg !20
@@ -35,11 +34,11 @@ define void @main() !dbg !3 {
   br label %2, !dbg !21
 
 16:                                               ; preds = %2
-  call void @verifier_error(), !dbg !22
+  call void @verifier.error(), !dbg !22
   unreachable, !dbg !23
 
 17:                                               ; preds = %9
-  call void @verifier_error(), !dbg !24
+  call void @verifier.error(), !dbg !24
   unreachable, !dbg !25
 }
 
