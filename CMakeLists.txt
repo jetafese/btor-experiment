@@ -239,4 +239,11 @@ endfunction()
 add_subdirectory(lib)
 
 # TODO: Add each job's subdirectory HERE
-add_subdirectory(jobs/example1)
+add_subdirectory(jobs/factorial)
+add_subdirectory(jobs/2020-rast-p00)
+add_subdirectory(jobs/2020-rast-p01)
+add_subdirectory(jobs/2020-rast-p03)
+add_subdirectory(jobs/2020-rast-p04)
+add_subdirectory(jobs/2020-rast-p06)
+add_subdirectory(jobs/2020-rast-p11)
+add_subdirectory(jobs/intersymbol_analog_estimation_convergence)
