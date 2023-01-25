@@ -46,4 +46,4 @@ Compiled bitcode files are placed under `build/jobs/<NAME>/llvm-ir/<NAME>.bc`
    ```bash
    $ klee [options] <BC_FILE> 
    ```
-   The `<BC_FILE>` is located on `build/jobs/<NAME>/llvm-ir/<NAME>.bc`
+   The `<BC_FILE>` is located on `build/jobs/<NAME>/llvm-ir/<NAME>.klee.ir/<NAME>.bc`
