@@ -74,7 +74,7 @@ extern void __assert_fail (const char *__assertion, const char *__file,
 uint8_t nd_bv4(void) {
   uint8_t res;
   klee_make_symbolic(&res, sizeof(res), "res_uint8_t");
-  klee_assume(res >= 0 && res <= 16);
+  klee_assume(res >= 0 && res < 16);
 
   return res;
 }
