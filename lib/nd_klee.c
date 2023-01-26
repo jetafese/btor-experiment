@@ -79,6 +79,13 @@ uint8_t nd_bv4(void) {
   return res;
 }
 
+uint8_t nd_bv8(void) {
+  uint8_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint8_t");
+
+  return res;
+}
+
 void verifier_error(void) {
   klee_assert(0);
 }
