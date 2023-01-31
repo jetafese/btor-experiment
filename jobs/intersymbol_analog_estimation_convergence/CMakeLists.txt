@@ -1,2 +1,0 @@
-attach_bc_link(intersymbol_analog_estimation_convergence intersymbol_analog_estimation_convergence.bc)
-add_btor_test(intersymbol_analog_estimation_convergence)

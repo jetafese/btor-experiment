@@ -71,18 +71,113 @@ extern void __assert_fail (const char *__assertion, const char *__file,
    : __assert_fail (#expr, __FILE__, __LINE__, __PRETTY_FUNCTION__))  \
 
 
+uint8_t nd_bv1(void) {
+  uint8_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint8_t");
+  klee_assume(res >= 0 && res < 2);
+  return res;
+}
+
+uint8_t nd_bv2(void) {
+  uint8_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint8_t");
+  klee_assume(res >= 0 && res < 4);
+  return res;
+}
+
+uint8_t nd_bv3(void) {
+  uint8_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint8_t");
+  klee_assume(res >= 0 && res < 8);
+  return res;
+}
+
 uint8_t nd_bv4(void) {
   uint8_t res;
   klee_make_symbolic(&res, sizeof(res), "res_uint8_t");
   klee_assume(res >= 0 && res < 16);
+  return res;
+}
 
+uint8_t nd_bv5(void) {
+  uint8_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint8_t");
+  klee_assume(res >= 0 && res < 32);
+  return res;
+}
+
+uint8_t nd_bv6(void) {
+  uint8_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint8_t");
+  klee_assume(res >= 0 && res < 64);
+  return res;
+}
+
+uint8_t nd_bv7(void) {
+  uint8_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint8_t");
+  klee_assume(res >= 0 && res < 128);
   return res;
 }
 
 uint8_t nd_bv8(void) {
   uint8_t res;
   klee_make_symbolic(&res, sizeof(res), "res_uint8_t");
+  return res;
+}
 
+uint16_t nd_bv9(void) {
+  uint16_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint16_t");
+  klee_assume(res >= 0 && res < 512);
+  return res;
+}
+
+uint16_t nd_bv10(void) {
+  uint16_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint16_t");
+  klee_assume(res >= 0 && res < 1024);
+  return res;
+}
+
+uint16_t nd_bv11(void) {
+  uint16_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint16_t");
+  klee_assume(res >= 0 && res < 2048);
+  return res;
+}
+
+uint16_t nd_bv12(void) {
+  uint16_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint16_t");
+  klee_assume(res >= 0 && res < 4096);
+  return res;
+}
+
+uint16_t nd_bv13(void) {
+  uint16_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint16_t");
+  klee_assume(res >= 0 && res < 8192);
+  return res;
+}
+
+uint16_t nd_bv14(void) {
+  uint16_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint16_t");
+  klee_assume(res >= 0 && res < 16384);
+  return res;
+}
+
+uint16_t nd_bv15(void) {
+  uint16_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint16_t");
+  klee_assume(res >= 0 && res < 32768);
+  return res;
+}
+
+uint16_t nd_bv16(void) {
+  uint16_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint16_t");
   return res;
 }
 

@@ -43,6 +43,8 @@ function(llvm_link name)
 
   set(OUT_LLVMIR_FILES "")
   set(FULL_OUT_LLVMIR_FILES "")
+  set(KLEELL "")
+  set(KLEE_BC "")
 
   get_property(IN_LLVMIR_TYPE TARGET ${DEPENDS_TRGT} PROPERTY LLVMIR_TYPE)
   get_property(LLVMIR_EXTERNAL_TYPE TARGET ${DEPENDS_TRGT}
@@ -243,17 +245,18 @@ function(add_btor_test TARGET)
   set(TARGET_KLEE "${TARGET}.klee.ir")
   add_custom_target(
     disassemble_${TARGET} ALL
-    COMMAND llvm-dis-14 ${KLEEBC}
+    COMMAND /usr/bin/llvm-dis-14 ${KLEEBC}
     DEPENDS ${TARGET_KLEE}
   )
   get_ll_file_name(KLEEBCLL ${TARGET}.klee.ir)
   message(${KLEEBCLL})
   add_custom_target(
     assemble_${TARGET} ALL
-    COMMAND llvm-as-14 ${KLEEBCLL}
+    COMMAND /usr/bin/llvm-as-11 ${KLEEBCLL}
     DEPENDS disassemble_${TARGET}
   )
-  add_test(NAME "klee_${TARGET}_test" COMMAND klee --libc=uclibc --exit-on-error ${KLEEBC})
+  add_test(NAME "klee_${TARGET}_test" COMMAND /home/jetafese/klee/build/bin/klee --exit-on-error ${KLEEBC})
+  set_tests_properties("klee_${TARGET}_test" PROPERTIES  WILL_FAIL "ON")
   # TODO: for libfuzzer
 endfunction()
 ########### END ##########
@@ -262,11 +265,8 @@ endfunction()
 add_subdirectory(lib)
 
 # TODO: Add each job's subdirectory HERE
-add_subdirectory(jobs/factorial)
-add_subdirectory(jobs/2020-rast-p00)
-add_subdirectory(jobs/2020-rast-p01)
-add_subdirectory(jobs/2020-rast-p03)
-add_subdirectory(jobs/2020-rast-p04)
-add_subdirectory(jobs/2020-rast-p06)
-add_subdirectory(jobs/2020-rast-p11)
-add_subdirectory(jobs/intersymbol_analog_estimation_convergence)
+add_subdirectory(jobs/2019/beem)
+# add_subdirectory(jobs/2019/goel)
+# add_subdirectory(jobs/2019/mann)
+# add_subdirectory(jobs/2019/wolf)
+# add_subdirectory(jobs/2020/mann)

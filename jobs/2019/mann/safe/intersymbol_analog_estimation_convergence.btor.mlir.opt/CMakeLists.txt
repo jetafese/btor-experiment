@@ -1,0 +1,2 @@
+attach_bc_link(intersymbol_analog_estimation_convergence.btor.mlir.opt intersymbol_analog_estimation_convergence.btor.mlir.opt.ll)
+add_btor_test(intersymbol_analog_estimation_convergence.btor.mlir.opt)
