@@ -52,6 +52,9 @@ macro(llvmir_setup)
   define_property(TARGET PROPERTY LLVMIR_FILES
     BRIEF_DOCS "list of LLVM IR files"
     FULL_DOCS "list of LLVM IR files")
+    define_property(TARGET PROPERTY LLVMIR_TEXT_FILES
+    BRIEF_DOCS "list of LLVM IR files for human readable"
+    FULL_DOCS "list of LLVM IR files for human readable")
 endmacro()
 
 

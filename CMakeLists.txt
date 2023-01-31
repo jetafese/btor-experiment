@@ -116,13 +116,16 @@ function(llvm_link name)
   list(TRANSFORM IN_OVERRIDE_OPTIONS PREPEND "--override=" )
 
   set(FULL_OUT_LLVMIR_FILE "${WORK_DIR}/${TRGT}.${LLVMIR_BINARY_FMT_SUFFIX}")
+  set(FULL_OUT_LLVMIR_TEXT_FILE "${WORK_DIR}/${TRGT}.${LLVMIR_TEXT_FMT_SUFFIX}")
   if(SHORT_NAME)
     set(FULL_OUT_LLVMIR_FILE
       "${WORK_DIR}/${SHORT_NAME}.${LLVMIR_BINARY_FMT_SUFFIX}")
   endif()
   get_filename_component(OUT_LLVMIR_FILE ${FULL_OUT_LLVMIR_FILE} NAME)
+  get_filename_component(OUT_LLVMIR_TEXT_FILE ${FULL_OUT_LLVMIR_TEXT_FILE} NAME)
 
   list(APPEND OUT_LLVMIR_FILES ${OUT_LLVMIR_FILE})
+  list(APPEND OUT_LLVMIR_TEXT_FILES ${OUT_LLVMIR_TEXT_FILE})
   list(APPEND FULL_OUT_LLVMIR_FILES ${FULL_OUT_LLVMIR_FILE})
 
   # setup custom target
@@ -133,6 +136,7 @@ function(llvm_link name)
     PROPERTY LLVMIR_EXTERNAL_TYPE ${LLVMIR_EXTERNAL_TYPE})
   set_property(TARGET ${TRGT} PROPERTY LLVMIR_DIR ${WORK_DIR})
   set_property(TARGET ${TRGT} PROPERTY LLVMIR_FILES ${OUT_LLVMIR_FILES})
+  set_property(TARGET ${TRGT} PROPERTY LLVMIR_TEXT_FILES ${OUT_LLVMIR_TEXT_FILES})
   set_property(TARGET ${TRGT} PROPERTY LINKER_LANGUAGE ${LINKER_LANGUAGE})
   set_property(TARGET ${TRGT} PROPERTY LINK_DEPENDS ${LINK_DEPENDS})
   set_property(TARGET ${TRGT} PROPERTY LINK_FLAGS ${LINK_FLAGS})
@@ -220,16 +224,35 @@ function(attach_bc_link name)
 #   attach_bc(${TARGET_LIBFUZZ})
 endfunction()
 
-function(get_file_name VAR LLVMIR_TARGET)
+function(get_bc_file_name VAR LLVMIR_TARGET)
   get_property(DIR TARGET ${LLVMIR_TARGET} PROPERTY LLVMIR_DIR)
   get_property(FILES TARGET ${LLVMIR_TARGET} PROPERTY LLVMIR_FILES)
+  set(${VAR} "${DIR}/${FILES}" PARENT_SCOPE)
+endfunction()
+
+function(get_ll_file_name VAR LLVMIR_TARGET)
+  get_property(DIR TARGET ${LLVMIR_TARGET} PROPERTY LLVMIR_DIR)
+  get_property(FILES TARGET ${LLVMIR_TARGET} PROPERTY LLVMIR_TEXT_FILES)
   set(${VAR} "${DIR}/${FILES}" PARENT_SCOPE)
 endfunction()
 
 # Unit test for testing btor
 function(add_btor_test TARGET)
   # For klee
-  get_file_name(KLEEBC ${TARGET}.klee.ir)
+  get_bc_file_name(KLEEBC ${TARGET}.klee.ir)
+  set(TARGET_KLEE "${TARGET}.klee.ir")
+  add_custom_target(
+    disassemble_${TARGET} ALL
+    COMMAND llvm-dis-14 ${KLEEBC}
+    DEPENDS ${TARGET_KLEE}
+  )
+  get_ll_file_name(KLEEBCLL ${TARGET}.klee.ir)
+  message(${KLEEBCLL})
+  add_custom_target(
+    assemble_${TARGET} ALL
+    COMMAND llvm-as-14 ${KLEEBCLL}
+    DEPENDS disassemble_${TARGET}
+  )
   add_test(NAME "klee_${TARGET}_test" COMMAND klee --libc=uclibc --exit-on-error ${KLEEBC})
   # TODO: for libfuzzer
 endfunction()
