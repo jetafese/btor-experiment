@@ -181,6 +181,345 @@ uint16_t nd_bv16(void) {
   return res;
 }
 
-void verifier_error(void) {
+uint32_t nd_bv17(void) {
+  uint32_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint32_t");
+  klee_assume(res >= 0 && res < 131072);
+  return res;
+}
+
+uint32_t nd_bv18(void) {
+  uint32_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint32_t");
+  klee_assume(res >= 0 && res < 262144);
+  return res;
+}
+
+uint32_t nd_bv19(void) {
+  uint32_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint32_t");
+  klee_assume(res >= 0 && res < 524288);
+  return res;
+}
+
+uint32_t nd_bv20(void) {
+  uint32_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint32_t");
+  klee_assume(res >= 0 && res < 1048576);
+  return res;
+}
+
+uint32_t nd_bv21(void) {
+  uint32_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint32_t");
+  klee_assume(res >= 0 && res < 2097152);
+  return res;
+}
+
+uint32_t nd_bv22(void) {
+  uint32_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint32_t");
+  klee_assume(res >= 0 && res < 4194304);
+  return res;
+}
+
+uint32_t nd_bv23(void) {
+  uint32_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint32_t");
+  klee_assume(res >= 0 && res < 8388608);
+  return res;
+}
+
+uint32_t nd_bv24(void) {
+  uint32_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint32_t");
+  klee_assume(res >= 0 && res < 16777216);
+  return res;
+}
+
+uint32_t nd_bv25(void) {
+  uint32_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint32_t");
+  klee_assume(res >= 0 && res < 33554432);
+  return res;
+}
+
+uint32_t nd_bv26(void) {
+  uint32_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint32_t");
+  klee_assume(res >= 0 && res < 67108864);
+  return res;
+}
+
+uint32_t nd_bv27(void) {
+  uint32_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint32_t");
+  klee_assume(res >= 0 && res < 134217728);
+  return res;
+}
+
+uint32_t nd_bv28(void) {
+  uint32_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint32_t");
+  klee_assume(res >= 0 && res < 268435456);
+  return res;
+}
+
+uint32_t nd_bv29(void) {
+  uint32_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint32_t");
+  klee_assume(res >= 0 && res < 536870912);
+  return res;
+}
+
+uint32_t nd_bv30(void) {
+  uint32_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint32_t");
+  klee_assume(res >= 0 && res < 1073741824);
+  return res;
+}
+
+uint32_t nd_bv31(void) {
+  uint32_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint32_t");
+  klee_assume(res >= 0 && res < 2147483648);
+  return res;
+}
+
+uint32_t nd_bv32(void) {
+  uint32_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint32_t");
+  return res;
+}
+
+uint64_t nd_bv33(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 8589934592);
+  return res;
+}
+
+uint64_t nd_bv34(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 17179869184);
+  return res;
+}
+
+uint64_t nd_bv35(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 34359738368);
+  return res;
+}
+
+uint64_t nd_bv36(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 68719476736);
+  return res;
+}
+
+uint64_t nd_bv37(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 137438953472);
+  return res;
+}
+
+uint64_t nd_bv38(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 274877906944);
+  return res;
+}
+
+uint64_t nd_bv39(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 549755813888);
+  return res;
+}
+
+uint64_t nd_bv40(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 1099511627776);
+  return res;
+}
+
+uint64_t nd_bv41(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 2199023255552);
+  return res;
+}
+
+uint64_t nd_bv42(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 4398046511104);
+  return res;
+}
+
+uint64_t nd_bv43(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 8796093022208);
+  return res;
+}
+
+uint64_t nd_bv44(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 17592186044416);
+  return res;
+}
+
+uint64_t nd_bv45(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 35184372088832);
+  return res;
+}
+
+uint64_t nd_bv46(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 70368744177664);
+  return res;
+}
+
+uint64_t nd_bv47(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 140737488355328);
+  return res;
+}
+
+uint64_t nd_bv48(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 281474976710656);
+  return res;
+}
+
+uint64_t nd_bv49(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 562949953421312);
+  return res;
+}
+
+uint64_t nd_bv50(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 1125899906842624);
+  return res;
+}
+
+uint64_t nd_bv51(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 2251799813685248);
+  return res;
+}
+
+uint64_t nd_bv52(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 4503599627370496);
+  return res;
+}
+
+uint64_t nd_bv53(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 9007199254740992);
+  return res;
+}
+
+uint64_t nd_bv54(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 18014398509481984);
+  return res;
+}
+
+uint64_t nd_bv55(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 36028797018963970);
+  return res;
+}
+
+uint64_t nd_bv56(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 72057594037927940);
+  return res;
+}
+
+uint64_t nd_bv57(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 144115188075855870);
+  return res;
+}
+
+uint64_t nd_bv58(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 288230376151711740);
+  return res;
+}
+
+uint64_t nd_bv59(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 576460752303423500);
+  return res;
+}
+
+uint64_t nd_bv60(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 1152921504606847000);
+  return res;
+}
+
+uint64_t nd_bv61(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 2305843009213694000);
+  return res;
+}
+uint64_t nd_bv62(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 4611686018427388000);
+  return res;
+}
+
+uint64_t nd_bv63(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  klee_assume(res >= 0 && res < 4611686018427388000*2ULL);
+  return res;
+}
+
+uint64_t nd_bv64(void) {
+  uint64_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint64_t");
+  return res;
+}
+
+__uint128_t nd_bv128(void) {
+  __uint128_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint128_t");
+  return res;
+}
+
+void __VERIFIER_error(void) {
   klee_assert(0);
 }

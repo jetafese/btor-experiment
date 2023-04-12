@@ -255,8 +255,8 @@ function(add_btor_test TARGET)
     COMMAND /usr/bin/llvm-as-11 ${KLEEBCLL}
     DEPENDS disassemble_${TARGET}
   )
-  add_test(NAME "klee_${TARGET}_test" COMMAND /home/jetafese/klee/build/bin/klee --exit-on-error ${KLEEBC})
-  set_tests_properties("klee_${TARGET}_test" PROPERTIES  WILL_FAIL "ON")
+  add_test(NAME "klee_${TARGET}_test" COMMAND timeout 300 /home/jetafese/klee/build/bin/klee --exit-on-error ${KLEEBC})
+  # set_tests_properties("klee_${TARGET}_test" PROPERTIES  WILL_FAIL "ON")
   # TODO: for libfuzzer
 endfunction()
 ########### END ##########
@@ -264,9 +264,8 @@ endfunction()
 
 add_subdirectory(lib)
 
-# TODO: Add each job's subdirectory HERE
-add_subdirectory(jobs/2019/beem)
+# add_subdirectory(jobs/2020/mann)
+# add_subdirectory(jobs/2019/beem)
 # add_subdirectory(jobs/2019/goel)
 # add_subdirectory(jobs/2019/mann)
-# add_subdirectory(jobs/2019/wolf)
-# add_subdirectory(jobs/2020/mann)
+add_subdirectory(jobs/2019/wolf)
