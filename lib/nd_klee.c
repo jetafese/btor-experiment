@@ -514,12 +514,24 @@ uint64_t nd_bv64(void) {
   return res;
 }
 
+__uint128_t nd_bv72(void) {
+  __uint128_t res;
+  klee_make_symbolic(&res, sizeof(res), "res_uint128_t");
+  klee_assume(res >= 0 && res < 4611686018427388000*1024ULL);
+  return res;
+}
+
 __uint128_t nd_bv128(void) {
   __uint128_t res;
   klee_make_symbolic(&res, sizeof(res), "res_uint128_t");
   return res;
 }
 
+
 void __VERIFIER_error(void) {
   klee_assert(0);
+}
+
+void __SEA_assume(uintptr_t cond) {
+  klee_assume(cond);
 }

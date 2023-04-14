@@ -1,0 +1,22 @@
+/home/jetafese/klee/build/bin/klee ../jobs/2019/wolf/2018D/VexRiscv-regch0-15-p0.btor.mlir.opt/VexRiscv-regch0-15-p0.btor.mlir.opt.ll
+PID: 14532
+Using monotonic steady clock with 1/1000000000s resolution
+Started: 2023-04-12 16:35:11
+BEGIN searcher description
+<InterleavedSearcher> containing 2 searchers:
+RandomPathSearcher
+WeightedRandomSearcher::CoveringNew
+</InterleavedSearcher>
+END searcher description
+Finished: 2023-04-12 16:35:11
+Elapsed: 00:00:00
+KLEE: done: explored paths = 1
+KLEE: done: total queries = 0
+KLEE: done: valid queries = 0
+KLEE: done: invalid queries = 0
+KLEE: done: query cex = 0
+
+KLEE: done: total instructions = 1
+KLEE: done: completed paths = 0
+KLEE: done: partially completed paths = 1
+KLEE: done: generated tests = 1

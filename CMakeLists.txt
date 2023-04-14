@@ -264,8 +264,8 @@ endfunction()
 
 add_subdirectory(lib)
 
-# add_subdirectory(jobs/2020/mann)
-# add_subdirectory(jobs/2019/beem)
-# add_subdirectory(jobs/2019/goel)
-# add_subdirectory(jobs/2019/mann)
+add_subdirectory(jobs/2020/mann)
+add_subdirectory(jobs/2019/beem)
+add_subdirectory(jobs/2019/goel)
+add_subdirectory(jobs/2019/mann)
 add_subdirectory(jobs/2019/wolf)
